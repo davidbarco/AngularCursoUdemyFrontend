@@ -1,0 +1,22 @@
+<app-slider [nombre]="'pagina'"></app-slider>
+
+
+<div class="center">
+    <section id="content">
+
+<h2 class="subheader">Pagina de pruebas</h2>
+
+</section>
+<app-sidebar></app-sidebar>
+</div>
+
+<div *ngIf="parametro && apellidos">
+<h3>el nombre es: {{parametro}}</h3>
+<h4>el apellido es: {{apellidos}}</h4>
+</div>
+
+<div *ngIf="!parametro || !apellidos">
+    <h3>pasa parametros por la url</h3>
+</div>
+
+<button (click)="redireccion()">Rediccion</button>

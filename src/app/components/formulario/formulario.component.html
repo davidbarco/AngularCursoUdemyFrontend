@@ -1,0 +1,52 @@
+<app-slider [nombre]="'formulario'"></app-slider>
+
+
+<div class="center">
+    <section id="content">
+
+        <h2 class="subheader">Formulario</h2>
+
+
+        <form class="full-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="" #nombre="ngModel" [(ngModel)]="user.nombre" required>
+                <small *ngIf="!nombre.valid && nombre.touched">
+                    nombre no es valido.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="Apellidos">Apellidos</label>
+                <input type="text" name="Apellidos" id="" #Apellidos="ngModel" [(ngModel)]="user.Apellidos" required>
+                <small *ngIf="!Apellidos.valid && Apellidos.touched">
+                    apellido no es valido.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="bio">Biografia</label>
+                <textarea name="bio" id="" cols="30" rows="10" #bio="ngModel" [(ngModel)]="user.bio" required></textarea>
+                <small *ngIf="!bio.valid && bio.touched">
+                    biografia no es valida.
+                </small>
+            </div>
+            <div class="form-group radio-buttons">
+                <input type="radio" name="genero" id="" value="hombre"  #genero="ngModel" [(ngModel)]="user.genero" required>Hombre
+                <input type="radio" name="genero" id="" value="mujer" #genero="ngModel" [(ngModel)]="user.genero">Mujer
+                <input type="radio" name="genero" id="" value="otro" #genero="ngModel" [(ngModel)]="user.genero">Otro
+                <small *ngIf="!genero.valid && genero.touched">
+                    debes escoger un genero..
+                </small>
+            </div>
+            <div class="clearfix"></div>
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid">
+        </form>
+
+
+        <!-- eventos dentro de angular -->
+        <h2 class="subheader">Eventos</h2>
+        <button (click)="hasDadoClick()">Dale Click</button>
+        <input type="text" [(ngModel)]="campo" (blur)="hasSalido()"> {{campo}}
+
+    </section>
+    <app-sidebar></app-sidebar>
+</div>
